@@ -1,0 +1,123 @@
+Indiana Jones and the Last Crusade: The Graphic Adventure (Atari ST, Kixx)
+THE TRANSLATION TABLE - reconstructed from the answer-derivation routine
+in 92.LFL at 0x3B66-0x3CB2 (333 bytes of SCUMM v3 bytecode).
+
+Symbol indices 0-11 = A B □ Δ E Φ Γ H I X K Λ
+Each cell lists the four symbols in the order the game asks for them.
+The game prompts 'Check Section <1-4>, Row <A-Z>, Column <1-7>'.
+
+=== SECTION 1 ===
+     Column 1   Column 2   Column 3   Column 4   Column 5   Column 6   Column 7 
+  A  AEXX       KΦKΛ       K□XΛ       HΓKB       KHΛI       ΛXΔI       BKEK     
+  B  AXΔΛ       EIEB       AKΔB       IHEI       □AΦK       □ΛΓA       EAH□     
+  C  AΛΓI       □AHK       Λ□ΓK       ΔBHA       B□I□       AΔXX       KEKΛ     
+  D  ΔBXA       B□K□       ΓEX□       XΦKX       ΔΓΛΛ       AIΔΛ       ΦAEB     
+  E  AEXB       BHKI       Λ□XI       XΔKK       ΓHΛA       ΔXΔA       ΛKE□     
+  F  BXΔI       ΛKEK       ΛHΔK       AΛEA       □AΦ□       BBΓX       Λ□HΛ     
+  G  AΛΓA       □AH□       H□Γ□       ΔIHX       EEIΛ       AΔXB       ΛEKI     
+  H  □ΦXΛ       ΓEKB       ΓBXB       X□KI       ΔΔΛK       ΛKΔK       BXEA     
+  I  AIΔB       ΛXEI       AΛΔI       KAEK       ΓΛΦA       IAΓ□       ΛBHX     
+  J  KAΓK       ΓΛHA       ΛBΓA       Φ□H□       IΔIX       □EXΛ       ΓΔKB     
+  K  EBX□       Δ□KX       AEXX       KΦKΛ       □EΛB       EΛΔB       ΛAEI     
+  L  BKΔX       AΛEΛ       ΛIΔΛ       EAEB       HBΦI       B□ΓK       ΦBHA     
+  M  HΛΓB       □AHI       Λ□ΓI       XΔHK       B□IA       HΔX□       KEKX     
+  N  E□XK       ΦΓKA       ΦΔXA       ΔEK□       □ΦΛX       ΛHΔX       ΦIEΛ     
+  O  ΓXΔA       EKE□       EHΔ□       ΔIEX       BXΦΛ       ΓBΓB       □HHI     
+  P  ΔAΓX       BBHΛ       ΦKΓΛ       □□HB       XHII       ΛEXK       ΔΔKA     
+  Q  BBXB       A□KI       AHXI       ΔΦKK       ΛEΛA       BΛΔA       ΔAE□     
+  R  HHΔI       EΛEK       EIΔK       BAEA       HBΦ□       IIΓX       EΔHΛ     
+  S  EΛΓA       ΓAH□       Δ□Γ□       ΛIHX       AEIΛ       EΔXB       HEKI     
+  T  B□XX       ΛΔKΛ       EΦXΛ       AEKB       ΛΦΛI       IHΔI       □IEK     
+  U  ΦΛΔΛ       AKEB       BHΔB       AIEI       KXΦK       ΔBΓA       B□H□     
+  V  AAΓI       KBHK       □KΓK       Λ□HA       ΦΔI□       IEXX       □ΦKΛ     
+  W  ΓBXA       E□K□       BEX□       AΦKX       KΓΛΛ       ΔIΔΛ       AAEB     
+  X  AKΔ□       BΛEX       BIΔX       ΛXEΛ       EBΦB       H□ΓI       BΔHK     
+  Y  ΛBΓΛ       ΔAHB       A□ΓB       ΛΔHI       XEIK       BΔXA       HEK□     
+  Z  K□XI       EΔKK       BΦXK       ΦEKA       ΔΦΛ□       IHΔ□       ΛIEX     
+
+=== SECTION 2 ===
+     Column 1   Column 2   Column 3   Column 4   Column 5   Column 6   Column 7 
+  A  X□II       ΔΔXK       ΔAIK       EEXA       □ΦK□       BΓΛX       KIΔX     
+  B  EEΛA       ΓΛΔA       HHΛ□       EXΔ□       ΔKEX       BΛΦΛ       ΦKΓB     
+  C  EXΦ□       ΔKΓX       IAΦX       □BΓΛ       ΓAHB       XBII       Δ□XK     
+  D  □BIΛ       ΔΦXB       Δ□IB       □ΔXI       AEKK       EΔΛA       ΓKΔA     
+  E  Φ□IA       ΔΔX□       ΔAI□       □BXX       A□KΛ       BΓΛB       ΓIΔB     
+  F  ΛΓΛX       IIΔX       ΦEΛΛ       AΛΔΛ       ΔKEB       □ΛΦI       EAΓK     
+  G  AΛΦΛ       ΔKΓB       EAΦB       BHΓI       B□HK       ΦBIA       Δ□X□     
+  H  ΛΔIK       Δ□XA       AEIA       ΓΦX□       ΛIKX       ΔHΛΛ       AXΔΛ     
+  I  ΓΦΛ□       ΔHΔ□       XΔΛX       ΛKΔX       ΦΛEΛ       AKΦB       AΛΓI     
+  J  ΛKΦX       ΦΛΓΛ       KBΦΛ       □AΓB       BBHI       Λ□IK       ΔBXA     
+  K  ΓEIB       XΦXI       X□II       ΔΔXK       Λ□KA       ΦΔΛ□       HKΔ□     
+  L  ΛHΛK       EXΔK       ΔΔΛA       ΦKΔA       BΛE□       KAΦX       EBΓΛ     
+  M  EXΦA       AKΓ□       ΔAΦ□       □BΓX       A□HΛ       EBIB       H□XI     
+  N  BAIX       ΛBXΛ       EΔIΛ       A□XB       ΛΔKI       XEΛK       BΛΔK     
+  O  EΓΛB       BIΔB       HEΛI       BΛΔI       ΛAEK       ΛΛΦA       BAΓ□     
+  P  AKΦI       □ΛΓK       ΔBΦK       ΛAΓA       ΦBH□       I□IX       □ΔXΛ     
+  Q  ΔEIA       BΦX□       B□I□       AΔXX       KEKΛ       □ΔΛB       EKΔB     
+  R  XIΛX       BXΔX       □ΦΛΛ       ΛHΔΛ       ΛΛEB       □HΦI       BBΓK     
+  S  ΔΛΦΛ       HKΓB       AAΦB       XHΓI       X□HK       BBIA       H□X□     
+  T  KAII       EBXK       BΔIK       Φ□XA       ΔΔK□       □EΛX       BIΔX     
+  U  BΓΛA       ΓIΔA       HEΛ□       ΛΛΔ□       IIEX       □BΦΛ       ΓAΓB     
+  V  IKΦ□       ΛΛΓX       ΛIΦX       K□ΓΛ       □BHB       B□II       ΛΔXK     
+  W  ΦBIΛ       ΓΦXB       Γ□IB       XΔXI       ΔEKK       ΛΔΛA       BKΔA     
+  X  BHΛI       KXΔI       ΛΦΛK       EHΔK       ΦΛEA       HAΦ□       KBΓX     
+  Y  AΛΦK       EKΓA       ΦAΦA       ΔBΓ□       □□HX       AΔIΛ       E□XB     
+  Z  □AI□       BBXX       KΔIX       EEXΛ       AΔKB       ΛEΛI       BΛΔI     
+
+=== SECTION 3 ===
+     Column 1   Column 2   Column 3   Column 4   Column 5   Column 6   Column 7 
+  A  BAH□       ABIX       □IHX       ΔEIΛ       HΔXB       KEKI       EΦΛK     
+  B  ΔEKΛ       HΔΛB       EΦKB       IHΛI       AIΔI       KXEK       ΔBΦA     
+  C  □AEB       BBΦI       XKEI       ΔΛΦK       ΛKΓA       ΦΛH□       AAIX     
+  D  ΔΛHK       AΔIA       AAHA       ΓBI□       X□XX       ΔΔKΛ       EHΛB     
+  E  E□HΛ       ABIB       ΦΔHB       IEII       □ΦXK       ΓEKA       EΦΛ□     
+  F  IEKI       □ΦΛK       □□KK       ΔΓΛA       AIΔA       ΓXE□       AKΦX     
+  G  EXEK       BBΦA       ΦKEA       BΛΦ□       KAΓX       EBHΛ       AAIB     
+  H  IBHX       □□IΛ       ΛΛHΛ       ΔΔIB       XHXI       AΦKK       EEΛA     
+  I  ΔΔKB       □EΛI       ΛΓKI       XHΛK       □XΔK       ΓIEA       EXΦ□     
+  J  IIEI       □XΦK       BΛEK       ΔKΦA       ΛΛΓ□       IAHX       □BIΛ     
+  K  Δ□HA       BΔI□       BAH□       ABIX       K□XΛ       HΓKB       KHΛI     
+  L  IΦKX       □ΓΛΛ       □ΔKΛ       ΔHΛB       ΛXΔB       ΛKEI       ΛΛΦK     
+  M  ΔXEΛ       ABΦB       EKEB       ΛΛΦI       XAΓK       ΦΛHA       HAI□     
+  N  HΔHI       BEIK       BBHK       ΦAIA       ΔBX□       □□KX       AΔΛΛ     
+  O  BEKA       HΦΛ□       H□K□       KΔΛX       AKΔX       ΛΛEΛ       □KΦB     
+  P  IIE□       ΛXΦX       ΛΛEX       KAΦΛ       ΓΛΓB       BAHI       ΛBIK     
+  Q  BΛHΛ       ΓΔIB       ΓAHB       XBII       Δ□XK       EΓKA       □HΛ□     
+  R  HHKI       ΛΓΛK       ΛΔKK       AHΛA       ΦXΔA       ΔKE□       □ΛΦX     
+  S  AXEK       ΦBΦA       BKEA       HΛΦ□       □AΓX       ABHΛ       EAIB     
+  T  HΔH□       □IIX       KBHX       E□IΛ       ABXB       Λ□KI       XΔΛK     
+  U  AΓKΛ       EΦΛB       E□KB       HΔΛI       □HΔI       ΔΛEK       ΛKΦA     
+  V  ΦIEB       IXΦI       XHEI       ΔAΦK       ΔΛΓA       ΦAH□       IBIX     
+  W  AΛHK       ΔΔIA       ΔAHA       BBI□       A□XX       KΔKΛ       HHΛB     
+  X  ΦΦK□       IΓΛX       IΔKX       □EΛΛ       EΛΔΛ       ΛKEB       ΛΛΦI     
+  Y  XXEX       ΔKΦΛ       EAEΛ       EΛΦB       ΛAΓI       XBHK       BAIA     
+  Z  EΔHB       HEII       HBHI       B□IK       ΦBXA       Δ□K□       □ΔΛX     
+
+=== SECTION 4 ===
+     Column 1   Column 2   Column 3   Column 4   Column 5   Column 6   Column 7 
+  A  □KΓB       BΛHI       AHΓI       A□HK       EBIA       □□X□       BΔKX     
+  B  A□XK       BΓKA       BΔXA       HEK□       KΦΛX       ΔHΔX       BIEΛ     
+  C  ΔKΔA       ΛΛE□       BIΔ□       AXEX       ΛKΦΛ       Δ□ΓB       □ΔHI     
+  D  ΛIΓX       ΛΔHΛ       ΛAΓΛ       HΛHB       □AII       ABXK       BΦKA     
+  E  BAΓK       BΛHA       □BΓA       I□H□       ΛΔIX       ΦEXΛ       BΔKB     
+  F  I□X□       ΛΔKX       ΛIXX       □ΓKΛ       ΓΦΛB       ΔHΔB       □IEI     
+  G  BHΔX       ΛIEΛ       EKΔΛ       ΛXEB       ΛKΦI       ΛΛΓK       □ΔHA     
+  H  BΛΓI       ΛAHK       E□ΓK       ABHA       Γ□I□       XΔXX       ΔEKΛ     
+  I  ABXA       Γ□K□       ΔEX□       □ΦKX       AΓΛΛ       ΦIΔΛ       □AEB     
+  J  ΦΛΔ□       AIEX       ΛXΔX       □KEΛ       ΓXΦB       XKΓI       ΔΛHK     
+  K  □□ΓΛ       ΓBHB       □KΓB       BΛHI       ΔAIK       EEXA       □ΦK□     
+  L  BΔXI       ΛEKK       ΛBXK       AΦKA       ΓΓΛ□       ΔIΔ□       □XEX     
+  M  AHΔK       BΛEA       BIΔA       HXE□       KKΦX       EΛΓΛ       BΔHB     
+  N  HBΓ□       K□HX       □ΛΓX       EAHΛ       ΦEIB       IΦXI       □ΓKK     
+  O  AEXΛ       EΔKB       BΦXB       AΓKI       KHΛK       ΔXΔK       ΛIEA     
+  P  BΛΔB       XAEI       BXΔI       ΛKEK       ΔXΦA       ΛKΓ□       AΛHX     
+  Q  Λ□ΓK       ΔBHA       ΛKΓA       ΦΛH□       AAIX       KBXΛ       HΦKB     
+  R  ΦΔX□       IEKX       IBXX       □□KΛ       ΔΓΛB       AIΔB       ΛXEI     
+  S  XHΔX       ΔIEΛ       AKΔΛ       EXEB       ΛKΦI       BΛΓK       ΓΔHA     
+  T  EBΓB       AHHI       ΛΛΓI       BAHK       □EIA       IΦX□       BIKX     
+  U  XEXK       BΔKA       ΓΦXA       EΓK□       IIΛX       AXΔX       ΛKEΛ     
+  V  ΛΛΔA       BAE□       ΦXΔ□       ΛKEX       □ΛΦΛ       ΓKΓB       BΛHI     
+  W  □IΓX       □ΔHΛ       □AΓΛ       BΛHB       XAII       ΔBXK       EΦKA     
+  X  □ΔXB       BEKI       BBXI       Λ□KK       AΓΛA       ΦIΔA       ΔXE□     
+  Y  □HΔI       AIEK       ΛKΔK       BXEA       HKΦ□       BΛΓX       AAHΛ     
+  Z  BBΓA       H□H□       BΛΓ□       KAHX       EBIΛ       ΦΦXB       IΓKI     

@@ -1,0 +1,10 @@
+# No game data in this repository - see README.
+*.stx
+*.st
+*.LFL
+*.PRG
+*.ID
+disk_images/
+disk_files/
+lfl_decoded/
+rooms_png/

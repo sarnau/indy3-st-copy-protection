@@ -1,0 +1,256 @@
+Indiana Jones and the Last Crusade: The Graphic Adventure (Atari ST, Kixx)
+Room 92 - the copy-protection scripts
+
+Disassembled from lfl_decoded/disk1/92.LFL (SCUMM v3 bytecode).
+Offsets are byte positions in the decoded file; the second column is the same
+value in hex, which is what the jump targets in the listing refer to.
+
+CAUTION: SCUMM evaluates its conditionals as 'operand2 OP variable', not
+variable-first. The listing below has already been normalised to read
+variable-first, so 'if (VAR104 >= 3)' really is column >= 3.
+Opcode 0xAE is a standalone waitForMessage in v3 (no subopcode byte).
+
+VARIABLE LEGEND (names assigned from observed behaviour; the listing below keeps
+the raw numbers so it stays faithful to the bytecode)
+
+  VAR103   row        1-26, shown to the player as a letter A-Z
+  VAR104   column     1-7
+  VAR105   section    1-4; also picks which glyph strip is displayed
+  VAR99    expect1    the four symbols the card should give,
+  VAR100   expect2      in the order the game asks for them
+  VAR101   expect3
+  VAR102   expect4
+  local0   pick       the symbol the player chose (verify loop)
+  local0   t          the accumulator (derivation)
+  VAR106   entryPos   which of the four is being entered; 5 = all in
+  bit1508  wrongFlag  sticky - set by any mismatch, cleared only on reset
+  VAR107   strikes    failed attempts; selects the refusal message
+  VAR57    sceneDone  scene finished - set on success AND on the third strike
+  VAR53    scratch    general scratch: the row letter, then a string id
+  VAR41, VAR20, VAR21  seed the random stir; not identified further
+
+
+==============================================================================
+=== room 92 script A (room header +25)
+=== tears the scene down: cursor off, user input off
+=== 14484 - 14501  (0x3894 - 0x38A5)
+==============================================================================
+14484 3894  33 10 00 90 00 03            roomOps(16, 144).3
+14490 389A  0a 15 01 02 00 ff            startScript(21, [2])
+14496 38A0  2c 02                        cursorCommand(2)
+14498 38A2  2c 04                        cursorCommand(4)
+14500 38A4  00                           stopObjectCode
+
+==============================================================================
+=== room 92 script B (room header +27)
+=== sets the puzzle up and starts local script 202; by behaviour this is the
+=== room-entry script (clears VAR57 and bit1508, sets VAR106=1, cursor on)
+=== 14501 - 14545  (0x38A5 - 0x38D1)
+==============================================================================
+14501 38A5  33 08 00 c8 00 03            roomOps(8, 200).3
+14507 38AB  0a 15 01 01 00 ff            startScript(21, [1])
+14513 38B1  0c 02 1e                     resource.load(30)
+14516 38B4  1a 20 00 c8 00               VAR32 = 200
+14521 38B9  0a ca ff                     startScript(202, [])
+14524 38BC  1a 6a 00 01 00               VAR106 = 1
+14529 38C1  1a 39 00 00 00               VAR57 = 0
+14534 38C6  1a e4 85 00 00               bit1508 = 0
+14539 38CB  2c 01                        cursorCommand(1)
+14541 38CD  2c 03                        cursorCommand(3)
+14543 38CF  00                           stopObjectCode
+14544 38D0  48 00 40 04 00 06 00         if (local0 == 4) ; else goto 38DD
+
+==============================================================================
+=== protection block: coordinate generator, prompt, verify loop, answer derivation
+=== 14545 - 15538  (0x38D1 - 0x3CB2)
+==============================================================================
+14545 38D1  00                           stopObjectCode
+14546 38D2  40 04 00 06 00 42 18 81...   cutscene [1536,6210,local1]
+14557 38DD  48 00 40 02 00 11 00         if (local0 == 2) ; else goto 38F5
+14564 38E4  f5 07 00 14 00 15 00         VAR7 = findObject(VAR20, VAR21)
+14571 38EB  a8 07 00 05 00               if (VAR7 != 0) ; else goto 38F5
+14576 38F0  b7 07 00 ff ff               startObject(VAR7, 255, [])
+14581 38F5  a0                           stopObjectCode
+14582 38F6  40 01 02 00 ff               cutscene [2]
+14587 38FB  ac 00 40 81 29 00 81 14...   local0 = expr( VAR41 VAR20 + VAR21 + )
+14602 390A  17 00 40 ff 00               local0 &= 255
+14607 390F  1a 02 40 00 00               local2 = 0
+14612 3914  16 01 40 ff                  local1 = getRandomNr(255)
+14616 3918  46 02 40                     local2++
+14619 391B  c4 02 40 00 40 f2 ff         if (local2 > local0) ; else goto 3914
+
+        ; row     = getRandomNr(25)+1   -> 1..26, shown as a letter A..Z
+14626 3922  ac 67 00 06 16 00 00 19...   VAR103 = expr( {VAR0 = getRandomNr(25)} 1 + )
+
+        ; column  = getRandomNr(6)+1    -> 1..7
+14639 392F  ac 68 00 06 16 00 00 06...   VAR104 = expr( {VAR0 = getRandomNr(6)} 1 + )
+
+        ; section = getRandomNr(3)+1    -> 1..4
+14652 393C  ac 69 00 06 16 00 00 03...   VAR105 = expr( {VAR0 = getRandomNr(3)} 1 + )
+14665 3949  0a cd ff                     startScript(205, [])
+14668 394C  07 a2 03 00                  setState(930, 0)
+14672 3950  07 a3 03 00                  setState(931, 0)
+14676 3954  48 69 00 01 00 08 00         if (VAR105 == 1) ; else goto 3963
+14683 395B  07 a2 03 01                  setState(930, 1)
+14687 395F  07 a3 03 00                  setState(931, 0)
+14691 3963  48 69 00 02 00 08 00         if (VAR105 == 2) ; else goto 3972
+14698 396A  07 a2 03 00                  setState(930, 0)
+14702 396E  07 a3 03 01                  setState(931, 1)
+14706 3972  48 69 00 03 00 08 00         if (VAR105 == 3) ; else goto 3981
+14713 3979  07 a2 03 01                  setState(930, 1)
+14717 397D  07 a3 03 00                  setState(931, 0)
+14721 3981  48 69 00 04 00 08 00         if (VAR105 == 4) ; else goto 3990
+14728 3988  07 a2 03 00                  setState(930, 0)
+14732 398C  07 a3 03 01                  setState(931, 1)
+14736 3990  80                           breakHere
+14737 3991  0a cb 01 01 00 ff            startScript(203, [1])
+14743 3997  c0                           endCutscene
+14744 3998  a0                           stopObjectCode
+14745 3999  16 00 40 ff                  local0 = getRandomNr(255)
+14749 399D  80                           breakHere
+14750 399E  18 f8 ff                     goto 3999
+14753 39A1  a0                           stopObjectCode
+14754 39A2  48 00 40 00 00 9f 00         if (local0 == 0) ; else goto 3A48
+14761 39A9  48 6b 00 01 00 27 00         if (VAR107 == 1) ; else goto 39D7
+14768 39B0  14 ff 01 0e 0f 54 68 61...   print(255): color(14) text="That doesn't seem to be right."
+14804 39D4  18 71 00                     goto 3A48
+14807 39D7  48 6b 00 02 00 25 00         if (VAR107 == 2) ; else goto 3A03
+14814 39DE  14 ff 01 0e 0f 4e 6f 2c...   print(255): color(14) text="No, that's not right either."
+14848 3A00  18 45 00                     goto 3A48
+14851 3A03  48 6b 00 03 00 3e 00         if (VAR107 == 3) ; else goto 3A48
+14858 3A0A  14 ff 01 0e 0f 4f 68 20...   print(255): color(14) text="Oh well^\waitI can't do it without my Translation Table."
+14917 3A45  18 00 00                     goto 3A48
+14920 3A48  48 00 40 01 00 5a 00         if (local0 == 1) ; else goto 3AA9
+
+        ; VAR53 = row + 64  : turn 1..26 into the ASCII letter
+14927 3A4F  ac 35 00 81 67 00 01 40...   VAR53 = expr( VAR103 64 + )
+14938 3A5A  27 01 09 40 40 40 40 40 00   string[9] = "@@@@@"
+14947 3A63  27 23 09 00 35 00            string[9][0] = VAR53
+14953 3A69  27 03 09 01 00               string[9][1] = 0
+14958 3A6E  1a 35 00 09 00               VAR53 = 9
+
+        ; the prompt: Check Section <sec>, Row <letter>, Column <col>
+14963 3A73  14 fe 01 00 04 00 a5 00...   print(254): color(0) center pos(165,113) text="Check Section \4(105), Row \7(53), Column \4(104)."
+15017 3AA9  a0                           stopObjectCode
+15018 3AAA  40 01 02 00 ff               cutscene [2]
+15023 3AAF  1c 1e                        startSound(30)
+15025 3AB1  80                           breakHere
+
+        ; --- VERIFICATION LOOP ---
+15026 3AB2  ac 01 40 81 63 00 81 64...   local1 = expr( VAR99 VAR100 + VAR101 + VAR102 + )
+
+        ; guard: an all-zero key means the derivation never ran -> force failure
+15045 3AC5  48 01 40 00 00 05 00         if (local1 == 0) ; else goto 3AD1
+15052 3ACC  1a e4 85 01 00               bit1508 = 1
+
+        ; compare the player's pick (local0) against the expected symbol
+15057 3AD1  48 6a 00 01 00 0f 00         if (VAR106 == 1) ; else goto 3AE7
+15064 3AD8  88 63 00 00 40 05 00         if (VAR99 != local0) ; else goto 3AE4
+15071 3ADF  1a e4 85 01 00               bit1508 = 1
+15076 3AE4  18 42 00                     goto 3B29
+15079 3AE7  48 6a 00 02 00 0f 00         if (VAR106 == 2) ; else goto 3AFD
+15086 3AEE  88 64 00 00 40 05 00         if (VAR100 != local0) ; else goto 3AFA
+15093 3AF5  1a e4 85 01 00               bit1508 = 1
+15098 3AFA  18 2c 00                     goto 3B29
+15101 3AFD  48 6a 00 03 00 0f 00         if (VAR106 == 3) ; else goto 3B13
+15108 3B04  88 65 00 00 40 05 00         if (VAR101 != local0) ; else goto 3B10
+15115 3B0B  1a e4 85 01 00               bit1508 = 1
+15120 3B10  18 16 00                     goto 3B29
+15123 3B13  48 6a 00 04 00 0f 00         if (VAR106 == 4) ; else goto 3B29
+15130 3B1A  88 66 00 00 40 05 00         if (VAR102 != local0) ; else goto 3B26
+15137 3B21  1a e4 85 01 00               bit1508 = 1
+15142 3B26  18 00 00                     goto 3B29
+15145 3B29  46 6a 00                     VAR106++
+15148 3B2C  48 6a 00 05 00 30 00         if (VAR106 == 5) ; else goto 3B63
+
+        ; all four entered; bit1508 set means at least one was wrong
+15155 3B33  a8 e4 85 26 00               if (bit1508 != 0) ; else goto 3B5E
+15160 3B38  46 6b 00                     VAR107++
+15163 3B3B  0a cb 01 00 00 ff            startScript(203, [0])
+15169 3B41  ae                           waitForMessage
+
+        ; THIRD STRIKE: give up - VAR57 is set anyway and the scene moves on
+15170 3B42  48 6b 00 03 00 08 00         if (VAR107 == 3) ; else goto 3B51
+15177 3B49  1a 39 00 01 00               VAR57 = 1
+15182 3B4E  18 0a 00                     goto 3B5B
+
+        ; otherwise reset and let the player try again (retries are unlimited)
+15185 3B51  1a 6a 00 01 00               VAR106 = 1
+15190 3B56  1a e4 85 00 00               bit1508 = 0
+15195 3B5B  18 05 00                     goto 3B63
+
+        ; passed
+15198 3B5E  1a 39 00 01 00               VAR57 = 1
+15203 3B63  80                           breakHere
+15204 3B64  c0                           endCutscene
+15205 3B65  a0                           stopObjectCode
+
+        ; --- ANSWER DERIVATION (0x3B66-0x3CB2, 333 bytes) ---
+15206 3B66  9a 00 40 68 00               local0 = VAR104
+15211 3B6B  9a 01 40 69 00               local1 = VAR105
+15216 3B70  5a 00 40 11 00               local0 += 17
+15221 3B75  3a 01 40 01 00               local1 -= 1
+15226 3B7A  48 01 40 00 00 ef ff         if (local1 == 0) ; else goto 3B70
+15233 3B81  da 00 40 67 00               local0 += VAR103
+15238 3B86  da 00 40 67 00               local0 += VAR103
+15243 3B8B  38 68 00 03 00 05 00         if (VAR104 >= 3) ; else goto 3B97
+15250 3B92  3a 00 40 02 00               local0 -= 2
+15255 3B97  da 00 40 67 00               local0 += VAR103
+15260 3B9C  78 67 00 05 00 05 00         if (VAR103 < 5) ; else goto 3BA8
+15267 3BA3  5a 00 40 03 00               local0 += 3
+15272 3BA8  5a 00 40 0c 00               local0 += 12
+15277 3BAD  3a 00 40 09 00               local0 -= 9
+15282 3BB2  78 00 40 0c 00 f4 ff         if (local0 < 12) ; else goto 3BAD
+
+        ; VAR101 = 3rd symbol
+15289 3BB9  9a 65 00 00 40               VAR101 = local0
+15294 3BBE  da 00 40 68 00               local0 += VAR104
+15299 3BC3  da 00 40 67 00               local0 += VAR103
+15304 3BC8  5a 00 40 13 00               local0 += 19
+15309 3BCD  44 67 00 07 00 05 00         if (VAR103 > 7) ; else goto 3BD9
+15316 3BD4  3a 00 40 05 00               local0 -= 5
+15321 3BD9  5a 00 40 07 00               local0 += 7
+15326 3BDE  3a 00 40 07 00               local0 -= 7
+15331 3BE3  78 00 40 08 00 f4 ff         if (local0 < 8) ; else goto 3BDE
+15338 3BEA  5a 00 40 13 00               local0 += 19
+15343 3BEF  84 00 40 65 00 05 00         if (local0 <= VAR101) ; else goto 3BFB
+15350 3BF6  da 00 40 65 00               local0 += VAR101
+15355 3BFB  3a 00 40 0c 00               local0 -= 12
+15360 3C00  04 00 40 0b 00 f4 ff         if (local0 <= 11) ; else goto 3BFB
+
+        ; VAR102 = 4th symbol
+15367 3C07  9a 66 00 00 40               VAR102 = local0
+15372 3C0C  da 00 40 68 00               local0 += VAR104
+15377 3C11  da 00 40 68 00               local0 += VAR104
+15382 3C16  da 00 40 68 00               local0 += VAR104
+15387 3C1B  da 00 40 67 00               local0 += VAR103
+15392 3C20  5a 00 40 0e 00               local0 += 14
+15397 3C25  78 67 00 0a 00 05 00         if (VAR103 < 10) ; else goto 3C31
+15404 3C2C  da 00 40 67 00               local0 += VAR103
+15409 3C31  3a 00 40 05 00               local0 -= 5
+15414 3C36  78 00 40 0a 00 f4 ff         if (local0 < 10) ; else goto 3C31
+15421 3C3D  88 00 40 66 00 05 00         if (local0 != VAR102) ; else goto 3C49
+15428 3C44  da 00 40 65 00               local0 += VAR101
+15433 3C49  5a 00 40 17 00               local0 += 23
+15438 3C4E  3a 00 40 0c 00               local0 -= 12
+15443 3C53  78 00 40 0c 00 f4 ff         if (local0 < 12) ; else goto 3C4E
+
+        ; VAR100 = 2nd symbol
+15450 3C5A  9a 64 00 00 40               VAR100 = local0
+15455 3C5F  da 00 40 68 00               local0 += VAR104
+15460 3C64  da 00 40 68 00               local0 += VAR104
+15465 3C69  da 00 40 68 00               local0 += VAR104
+15470 3C6E  da 00 40 67 00               local0 += VAR103
+15475 3C73  5a 00 40 0d 00               local0 += 13
+15480 3C78  44 68 00 07 00 05 00         if (VAR104 > 7) ; else goto 3C84
+15487 3C7F  5a 00 40 06 00               local0 += 6
+15492 3C84  3a 00 40 08 00               local0 -= 8
+15497 3C89  78 00 40 11 00 f4 ff         if (local0 < 17) ; else goto 3C84
+15504 3C90  c4 00 40 64 00 05 00         if (local0 > VAR100) ; else goto 3C9C
+15511 3C97  da 00 40 66 00               local0 += VAR102
+15516 3C9C  5a 00 40 0e 00               local0 += 14
+15521 3CA1  3a 00 40 0c 00               local0 -= 12
+15526 3CA6  04 00 40 0b 00 f4 ff         if (local0 <= 11) ; else goto 3CA1
+
+        ; VAR99  = 1st symbol
+15533 3CAD  9a 63 00 00 40               VAR99 = local0
